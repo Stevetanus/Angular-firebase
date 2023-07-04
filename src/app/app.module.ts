@@ -23,6 +23,8 @@ import { getAuth } from "firebase/auth";
 import { provideFirebaseApp } from "@angular/fire/app";
 import { initializeApp } from "firebase/app";
 import { HotToastModule } from "@ngneat/hot-toast";
+import { HttpComponent } from "./components/http/http.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { HotToastModule } from "@ngneat/hot-toast";
     HomeComponent,
     LoginComponent,
     SignUpComponent,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { HotToastModule } from "@ngneat/hot-toast";
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     HotToastModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

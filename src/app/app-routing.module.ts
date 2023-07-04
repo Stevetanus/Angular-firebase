@@ -9,6 +9,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
+import { HttpComponent } from "./components/http/http.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo(["login"]);
 const redirectToHome = () => redirectLoggedInTo(["home"]);
@@ -36,6 +37,11 @@ const routes: Routes = [
     pathMatch: "full",
     component: HomeComponent,
     ...canActivate(redirectToLogin),
+  },
+  {
+    path: "http-service",
+    pathMatch: "full",
+    component: HttpComponent,
   },
 ];
 

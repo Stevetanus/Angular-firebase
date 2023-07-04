@@ -1,0 +1,40 @@
+<div class="form-container mat-elevation-z5">
+  <h1>Http service</h1>
+  <form [formGroup]="postForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title" />
+      <mat-error *ngIf="title?.errors?.['required']"
+        >Title is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Content"
+        formControlName="content"
+        type="text"
+      />
+      <mat-error *ngIf="content?.errors?.['required']">
+        Content is required</mat-error
+      >
+    </mat-form-field>
+    <div class="center margin-top">
+      <button mat-flat-button color="primary" type="submit">Send Posts</button>
+    </div>
+  </form>
+  <div class="posts">
+    <p *ngIf="loadedPosts.length < 1 && !isFetching">No posts available!</p>
+    <ul class="list-group" *ngIf="loadedPosts.length >= 1 && !isFetching">
+      <li class="list-group-item" *ngFor="let post of loadedPosts">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+      </li>
+    </ul>
+    <p *ngIf="isFetching">Loading...</p>
+  </div>
+  <div class="center margin-top">
+    <button mat-flat-button color="primary" (click)="onClearPosts()">
+      Clear Posts
+    </button>
+  </div>
+</div>
