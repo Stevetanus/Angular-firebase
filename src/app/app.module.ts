@@ -24,8 +24,10 @@ import { provideFirebaseApp } from "@angular/fire/app";
 import { initializeApp } from "firebase/app";
 import { HotToastModule } from "@ngneat/hot-toast";
 import { HttpComponent } from "./components/http/http.component";
-import { HttpClientModule } from "@angular/common/http";
-import { ModalComponent } from './components/modal/modal.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ModalComponent } from "./components/modal/modal.component";
+import { AuthInterceptorService } from "./auth-interceptor";
+import { LoggingInterceptorService } from "./logging-interceptor";
 
 @NgModule({
   declarations: [
@@ -55,7 +57,18 @@ import { ModalComponent } from './components/modal/modal.component';
     HotToastModule.forRoot(),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

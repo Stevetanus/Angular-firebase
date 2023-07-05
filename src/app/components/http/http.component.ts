@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { map } from "rxjs";
+import { Subscription, map } from "rxjs";
 import { PostsService } from "src/app/services/posts.service";
 import { Post } from "src/model/posts.model";
 
@@ -22,11 +22,18 @@ export class HttpComponent implements OnInit {
 
   loadedPosts: Post[] = [];
   isFetching = false;
+  error = null;
+  errorMsg = "";
+  private errorSub: Subscription = new Subscription();
 
   constructor(private http: HttpClient, private postS: PostsService) {}
 
   ngOnInit(): void {
     this.fetchPosts();
+    this.errorSub = this.postS.error.subscribe((errorMsg) => {
+      console.log({ errorMsg });
+      this.errorMsg = errorMsg;
+    });
   }
 
   get title() {
@@ -52,12 +59,20 @@ export class HttpComponent implements OnInit {
     this.clearPosts();
   }
 
+  onHandleError() {
+    this.error = null;
+  }
+
   private fetchPosts() {
     this.isFetching = true;
     this.postS.fetchPosts().subscribe({
       next: (posts) => {
-        this.loadedPosts = posts;
         this.isFetching = false;
+        this.loadedPosts = posts;
+      },
+      error: (error) => {
+        this.isFetching = false;
+        this.error = error.error.error;
       },
     });
   }
@@ -68,5 +83,9 @@ export class HttpComponent implements OnInit {
         this.loadedPosts = [];
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.errorSub.unsubscribe();
   }
 }

@@ -30,7 +30,11 @@
         <p>{{ post.content }}</p>
       </li>
     </ul>
-    <p *ngIf="isFetching">Loading...</p>
+    <p *ngIf="isFetching && !error">Loading...</p>
+    <p *ngIf="error">An Error Occurred!</p>
+    <p>Error: {{ error }}</p>
+    <p>Error Msg: {{ errorMsg }}</p>
+    <button (click)="onHandleError()">Okay</button>
   </div>
   <div class="center margin-top">
     <button mat-flat-button color="primary" (click)="onClearPosts()">
