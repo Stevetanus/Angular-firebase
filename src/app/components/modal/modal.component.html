@@ -1,0 +1,28 @@
+<div>
+  <button data-open-modal #openModal (click)="onOpen()">
+    open traditional modal
+  </button>
+  <div data-overlay class="overlay" #overlay></div>
+  <div data-modal class="modal" #modal>
+    <div>This is a modal</div>
+    <button data-close-modal #closeModal (click)="onClose()">Close</button>
+  </div>
+</div>
+<div>
+  <button (click)="onDialogOpen()">open modal</button>
+  <dialog #dialog>
+    <div>This is a modal</div>
+    <button (click)="onDialogClose()">Close</button>
+  </dialog>
+</div>
+<div>
+  <button (click)="onDialog2Open()">open modal form</button>
+  <dialog #dialog2>
+    <form>
+      <label for=""></label>
+      <input type="text" />
+      <button type="submit" formmethod="dialog">Cancel</button>
+      <button type="submit">Submit</button>
+    </form>
+  </dialog>
+</div>

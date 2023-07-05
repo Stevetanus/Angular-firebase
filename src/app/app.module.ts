@@ -25,6 +25,7 @@ import { initializeApp } from "firebase/app";
 import { HotToastModule } from "@ngneat/hot-toast";
 import { HttpComponent } from "./components/http/http.component";
 import { HttpClientModule } from "@angular/common/http";
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClientModule } from "@angular/common/http";
     LoginComponent,
     SignUpComponent,
     HttpComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

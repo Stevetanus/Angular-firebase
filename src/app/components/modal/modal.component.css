@@ -1,0 +1,28 @@
+.overlay {
+    display: none;
+    position: fixed;
+    inset:0;
+    background: rgba(0,0,0,.5);
+    z-index: 9;
+}
+
+.overlay.open,
+.modal.open{
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    padding: 0.5rem;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: white;
+    border-radius: .25rem;
+    z-index: 10;
+}
+
+dialog::backdrop {
+    background-color: hsl(200, 100%, 50%, .5);
+}

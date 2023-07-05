@@ -1,15 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-landing',
+  selector: "app-landing",
   template: `
-    <p>
-      landing works!
-    </p>
+    <p>landing works!</p>
+    <app-modal></app-modal>
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class LandingComponent {
-
-}
+export class LandingComponent {}
