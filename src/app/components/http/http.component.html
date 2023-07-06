@@ -1,3 +1,4 @@
+<ng-template appPlaceholder></ng-template>
 <div class="form-container mat-elevation-z5">
   <h1>Http service</h1>
   <form [formGroup]="postForm" (ngSubmit)="submit()">
@@ -35,6 +36,11 @@
     <p>Error: {{ error }}</p>
     <p>Error Msg: {{ errorMsg }}</p>
     <button (click)="onHandleError()">Okay</button>
+    <!-- <app-alert
+      *ngIf="error"
+      [message]="error"
+      (close)="onHandleError()"
+    ></app-alert> -->
   </div>
   <div class="center margin-top">
     <button mat-flat-button color="primary" (click)="onClearPosts()">

@@ -1,9 +1,11 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Subscription, map } from "rxjs";
 import { PostsService } from "src/app/services/posts.service";
 import { Post } from "src/model/posts.model";
+import { AlertComponent } from "../alert/alert.component";
+import { PlaceholderDirective } from "src/app/directives/placeholder.directive";
 
 @Component({
   selector: "app-http",
@@ -25,6 +27,9 @@ export class HttpComponent implements OnInit {
   error = null;
   errorMsg = "";
   private errorSub: Subscription = new Subscription();
+  private closeSub: Subscription = new Subscription();
+  @ViewChild(PlaceholderDirective, { static: false })
+  alertHost!: PlaceholderDirective;
 
   constructor(private http: HttpClient, private postS: PostsService) {}
 
@@ -73,6 +78,7 @@ export class HttpComponent implements OnInit {
       error: (error) => {
         this.isFetching = false;
         this.error = error.error.error;
+        this.showErrorAlert(error);
       },
     });
   }
@@ -85,7 +91,24 @@ export class HttpComponent implements OnInit {
     });
   }
 
+  private showErrorAlert(error: string) {
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef =
+      hostViewContainerRef.createComponent<AlertComponent>(AlertComponent);
+
+    componentRef.instance.message = error;
+    this.closeSub = componentRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContainerRef.clear();
+    });
+  }
+
   ngOnDestroy(): void {
     this.errorSub.unsubscribe();
+    if (this.closeSub) {
+      this.closeSub.unsubscribe();
+    }
   }
 }

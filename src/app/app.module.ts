@@ -28,6 +28,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ModalComponent } from "./components/modal/modal.component";
 import { AuthInterceptorService } from "./auth-interceptor";
 import { LoggingInterceptorService } from "./logging-interceptor";
+import { AlertComponent } from "./components/alert/alert.component";
+import { PlaceholderDirective } from "./directives/placeholder.directive";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { LoggingInterceptorService } from "./logging-interceptor";
     SignUpComponent,
     HttpComponent,
     ModalComponent,
+    AlertComponent,
+    PlaceholderDirective,
   ],
   imports: [
     BrowserModule,
