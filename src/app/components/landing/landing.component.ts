@@ -5,6 +5,7 @@ import { Component } from "@angular/core";
   template: `
     <p>landing works!</p>
     <app-modal></app-modal>
+    <app-posts></app-posts>
   `,
   styles: [],
 })

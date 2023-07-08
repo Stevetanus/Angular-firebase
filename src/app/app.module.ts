@@ -30,6 +30,7 @@ import { AuthInterceptorService } from "./auth-interceptor";
 import { LoggingInterceptorService } from "./logging-interceptor";
 import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PlaceholderDirective } from "./directives/placeholder.directive";
     ModalComponent,
     AlertComponent,
     PlaceholderDirective,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
