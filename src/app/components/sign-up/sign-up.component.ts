@@ -10,21 +10,7 @@ import { Component } from "@angular/core";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { HotToastService } from "@ngneat/hot-toast";
 import { Router } from "@angular/router";
-
-export function passwordsMatchValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const password = control.get("password")?.value;
-    const confirmPassword = control.get("confirmPassword")?.value;
-
-    if (password && confirmPassword && password !== confirmPassword) {
-      return {
-        passwordDontMatch: true,
-      };
-    }
-
-    return null;
-  };
-}
+import { passwordsMatchValidator } from "src/app/shared/password.validator";
 
 @Component({
   selector: "app-sign-up",

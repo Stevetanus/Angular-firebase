@@ -10,6 +10,7 @@ import {
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
 import { HttpComponent } from "./components/http/http.component";
+import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo(["login"]);
 const redirectToHome = () => redirectLoggedInTo(["home"]);
@@ -42,6 +43,11 @@ const routes: Routes = [
     path: "http-service",
     pathMatch: "full",
     component: HttpComponent,
+  },
+  {
+    path: "register",
+    pathMatch: "full",
+    component: RegistrationFormComponent,
   },
 ];
 

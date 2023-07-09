@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <h2>Registration Form</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input
+        formControlName="userName"
+        type="text"
+        id="name"
+        class="form-control"
+      />
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <span *ngIf="userName?.errors?.['minlength']">
+          Username must be at least 3 characters.
+        </span>
+        <span *ngIf="userName?.errors?.['required']">
+          Username is required.
+        </span>
+        <span *ngIf="userName?.errors?.['forbiddenName']">
+          {{ userName?.errors?.['forbiddenName'].value }} is not allowed.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <button (click)="addAlternateEmail()">Add e-mail</button>
+      <div>
+        <input formControlName="email" type="text" />
+      </div>
+      <div
+        formArrayName="alternateEmails"
+        *ngFor="let email of alternateEmails.controls; let i = index"
+      >
+        <input type="text" class="form-control" [formControlName]="i" />
+      </div>
+    </div>
+    <div *ngIf="email?.touched && email?.errors?.['required']">
+      To receive special offers, email is required.
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        formControlName="subscribe"
+        type="checkbox"
+        class="form-check-input"
+      />
+      <label class="form-check-label">Send me promotional offers</label>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cp">Confirm Password</label>
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        id="cp"
+        class="form-control"
+      />
+    </div>
+
+    <div *ngIf="registrationForm?.errors?.['misMatch']">
+      password is not match with confirm password.
+    </div>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label>City</label>
+        <input formControlName="city" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input formControlName="state" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Postal code</label>
+        <input formControlName="postalCode" type="text" class="form-contrdol" />
+      </div>
+    </div>
+
+    <button
+      [disabled]="!registrationForm.valid"
+      class="btn btn-primary"
+      type="submit"
+    >
+      Register
+    </button>
+    <button (click)="loadApiData()" class="btn btn-secondary">
+      Load API Data
+    </button>
+  </form>
+  {{ registrationForm.value | json }}
+</div>
