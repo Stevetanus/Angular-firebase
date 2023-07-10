@@ -27,6 +27,7 @@ export class LandingComponent {
     this.isTest = false;
   }
 
+  // blur 有些元素沒有這個屬性，之後再看要怎麼加上去
   onBlurFunction(): void {
     // 在這裡處理 onBlur 邏輯
     console.log("The div lost focus");

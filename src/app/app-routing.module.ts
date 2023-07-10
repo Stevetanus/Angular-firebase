@@ -11,6 +11,7 @@ import {
 } from "@angular/fire/auth-guard";
 import { HttpComponent } from "./components/http/http.component";
 import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
+import { RxjsComponent } from "./components/rxjs/rxjs.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo(["login"]);
 const redirectToHome = () => redirectLoggedInTo(["home"]);
@@ -48,6 +49,11 @@ const routes: Routes = [
     path: "register",
     pathMatch: "full",
     component: RegistrationFormComponent,
+  },
+  {
+    path: "rxjs",
+    pathMatch: "full",
+    component: RxjsComponent,
   },
 ];
 

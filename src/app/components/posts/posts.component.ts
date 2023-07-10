@@ -14,7 +14,7 @@ export class PostsComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // hot observable multibroadcast
+    // hot observable multibroadcast, without shareReplay it would only be cold.
     this.posts$ = this.http.get<any[]>(this.postsEndpoints).pipe(shareReplay());
   }
 }
