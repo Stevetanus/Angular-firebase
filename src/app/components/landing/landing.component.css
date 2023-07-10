@@ -1,0 +1,12 @@
+.test {
+    position: relative;
+    width: 100px;
+}
+
+.testP {
+    width: 300px;
+    background: green;
+    position: absolute;
+    left: 500px;
+    top: 50px;
+}

@@ -1,3 +1,4 @@
+import { ClickOutsideCloseDirective } from "./directives/clickOutsideClose.directive";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -46,6 +47,7 @@ import { RegistrationFormComponent } from "./components/registration-form/regist
     PlaceholderDirective,
     PostsComponent,
     RegistrationFormComponent,
+    ClickOutsideCloseDirective,
   ],
   imports: [
     BrowserModule,
