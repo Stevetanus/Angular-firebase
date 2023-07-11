@@ -115,13 +115,14 @@ export class RxjsComponent {
     });
     this.hot.subscribe((hot) => this.paragraph.push(`hot1: ${hot}`));
     this.hot.subscribe((hot) => this.paragraph.push(`hot2: ${hot}`));
-    this.hotPublish.subscribe((hot) =>
-      this.paragraph.push(`hotPublish1: ${hot}`)
-    );
-    this.hotPublish.subscribe((hot) =>
-      this.paragraph.push(`hotPublish2: ${hot}`)
-    );
+    this.hotPublish.subscribe((hot) => {
+      this.paragraph.push(`hotPublish1: ${hot}`);
+    });
+    this.hotPublish.subscribe((hot) => {
+      this.paragraph.push(`hotPublish2: ${hot}`);
+    });
     this.apiCall.pipe(map((json) => JSON.parse(json))).subscribe((obj) => {
+      console.log(this.paragraph);
       console.log(obj);
       this.paragraph.push(obj.type);
       this.paragraph.push(obj.breed);
