@@ -34,6 +34,7 @@ import { PlaceholderDirective } from "./directives/placeholder.directive";
 import { PostsComponent } from "./components/posts/posts.component";
 import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     RegistrationFormComponent,
     ClickOutsideCloseDirective,
     RxjsComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
