@@ -32,6 +32,7 @@ import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
 import { PostsComponent } from "./components/posts/posts.component";
 import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
+import { AlphabetInvasionComponent } from './pages/alphabet-invasion/alphabet-invasion.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RegistrationFormComponent } from "./components/registration-form/regist
     PlaceholderDirective,
     PostsComponent,
     RegistrationFormComponent,
+    AlphabetInvasionComponent,
   ],
   imports: [
     BrowserModule,
