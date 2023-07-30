@@ -12,6 +12,7 @@ import {
 import { HttpComponent } from "./components/http/http.component";
 import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
 import { AlphabetInvasionComponent } from "./pages/alphabet-invasion/alphabet-invasion.component";
+import { RxjsComponent } from "./components/rxjs/rxjs.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo(["login"]);
 const redirectToHome = () => redirectLoggedInTo(["home"]);
@@ -54,6 +55,11 @@ const routes: Routes = [
     path: "alphabet-invasion",
     pathMatch: "full",
     component: AlphabetInvasionComponent,
+  },
+  {
+    path: "rxjs",
+    pathMatch: "full",
+    component: RxjsComponent,
   },
 ];
 

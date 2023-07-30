@@ -1,3 +1,4 @@
+import { ClickOutsideCloseDirective } from "./directives/clickOutsideClose.directive";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -32,7 +33,9 @@ import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
 import { PostsComponent } from "./components/posts/posts.component";
 import { RegistrationFormComponent } from "./components/registration-form/registration-form.component";
-import { AlphabetInvasionComponent } from './pages/alphabet-invasion/alphabet-invasion.component';
+import { AlphabetInvasionComponent } from "./pages/alphabet-invasion/alphabet-invasion.component";
+import { RxjsComponent } from "./components/rxjs/rxjs.component";
+import { CounterComponent } from "./components/counter/counter.component";
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { AlphabetInvasionComponent } from './pages/alphabet-invasion/alphabet-in
     PostsComponent,
     RegistrationFormComponent,
     AlphabetInvasionComponent,
+    ClickOutsideCloseDirective,
+    RxjsComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
