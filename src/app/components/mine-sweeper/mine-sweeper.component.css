@@ -1,0 +1,22 @@
+:host {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  flex-direction: column;
+  color: white;
+}
+
+.board {
+  display: inline-grid;
+  gap: 4px;
+  padding: 10px;
+  grid-template-rows: repeat(var(--size), 60px);
+  grid-template-columns: repeat(var(--size), 60px);
+  background-color: #777;
+}

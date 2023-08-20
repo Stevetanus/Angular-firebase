@@ -1,0 +1,7 @@
+<div class="board" #boardElement>
+  <ng-container *ngFor="let row of board">
+    <div *ngFor="let cell of row">
+      <app-tile [x]="cell.i" [y]="cell.j"></app-tile>
+    </div>
+  </ng-container>
+</div>
