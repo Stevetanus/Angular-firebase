@@ -36,7 +36,8 @@ import { RegistrationFormComponent } from "./components/registration-form/regist
 import { AlphabetInvasionComponent } from "./pages/alphabet-invasion/alphabet-invasion.component";
 import { RxjsComponent } from "./components/rxjs/rxjs.component";
 import { CounterComponent } from "./components/counter/counter.component";
-
+import { TileComponent } from "./components/mine-sweeper/tile/tile.component";
+import { MineSweeperComponent } from "./components/mine-sweeper/mine-sweeper.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,8 @@ import { CounterComponent } from "./components/counter/counter.component";
     ClickOutsideCloseDirective,
     RxjsComponent,
     CounterComponent,
+    MineSweeperComponent,
+    TileComponent,
   ],
   imports: [
     BrowserModule,
